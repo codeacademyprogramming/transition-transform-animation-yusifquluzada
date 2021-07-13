@@ -1,0 +1,146 @@
+*, 
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: black;
+    font-size: 32px;
+    background-color: white;
+    transition-property: all;
+    transition-duration: 1s;
+    transition-delay: 1s;
+}
+
+h1:hover {
+    color: white;
+    font-size: 40px;
+    background-color: black;
+}
+
+.box {
+    font-size: 20px;
+    color: white;
+    font-family: "Arial", "sans-serif";
+    height: 100px;
+    width: 100px;
+    background-color: black;
+    margin-bottom: 20px;
+    transition-duration: 4s;
+    transition-property: width;
+}
+
+.box.ease {
+    transition-timing-function: ease;
+}
+
+.box.ease-in {
+    transition-timing-function: ease-in;
+}
+
+.box.ease-in-out {
+    transition-timing-function: ease-in-out;
+}
+
+.box.ease-out {
+    transition-timing-function: ease-out;
+}
+
+.box.linear {
+    transition-timing-function: linear;
+}
+
+.wrapper:hover .box {
+    width: 1000px;
+}
+
+.transform-box {
+    width: 200px;
+    height: 200px;
+    background-color: green;
+    transition: 
+        transform .5s ease-in .3s,
+        color 1s linear .5s
+    ;
+    /* transform: scaleX(2) scaleY(0.5); */
+    /* transform: translate(200px, 300px); */
+}
+
+/* .transform-box.skew-x {
+    transform: skewX(30deg);
+}
+
+.transform-box.skew-y {
+    transform: skewY(30deg);
+} */
+
+.animation {
+    width: 200px;
+    height: 200px;
+    background-color: black;
+    transform: translate(0%, 0%);
+    animation-name: moving-moving;
+    animation-duration: 2s;
+    /* animation-delay: 2s; */
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    animation-timing-function: linear;
+    /* animation-duration: ; */
+}
+
+@keyframes moving-moving {
+    from {
+        transform: translate(0, 0);
+        background-color: red;
+    }
+    25% {
+        transform: translate(200px, 0);
+        background-color: yellow;
+    }
+    50% {
+        transform: translate(200px, 200px);
+        background-color: blue;
+    }
+    75% {
+        transform: translate(0, 200px);
+        background-color: green;
+    }
+    to {
+        transform: translate(0px, 0px);
+        background-color: pink;
+    }
+}
+
+.loading-wrapper {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner {
+    width: 80px;
+    height: 80px;
+    border: 8px solid black;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation-name: spinner;
+    animation-duration: .5s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+}
+
+@keyframes spinner {
+    from {
+        transform: rotate(0deg)
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
