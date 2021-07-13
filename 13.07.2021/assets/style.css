@@ -1,0 +1,187 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.game {
+  border: 4px solid #000;
+  height: 600px;
+  width: 100%;
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.game .moon {
+  width: 100px;
+  height: 100px;
+  background-color: whitesmoke;
+  position: relative;
+  left: 1175px;
+  top: -37%;
+  box-shadow: 0 0 60px #fff;
+  border-radius: 50%;
+}
+
+.game .pacman {
+  width: 300px;
+  height: 300px;
+  background-color: #f9f850;
+  border-radius: 50%;
+  border-right: none;
+  position: relative;
+  left: -20%;
+  transition: transform 2s;
+  animation-name: motion;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  z-index: 5;
+}
+
+.game .pacman .eye {
+  width: 30px;
+  height: 30px;
+  background-color: rgb(20, 20, 20);
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 9%;
+}
+
+.game .pacman .mouth {
+  width: 275px;
+  height: 275px;
+  background-color: #000;
+  border-radius: 50%;
+  position: absolute;
+  top: 4%;
+  left: 9%;
+  clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+  animation-name: eating;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.game .food-road {
+  width: 1000px;
+  height: 200px;
+  position: relative;
+  left: 15%;
+  display: flex;
+  align-items: center;
+}
+
+.game .food-road .food {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: relative;
+  left: 1010px;
+  background-color: rgb(207, 60, 60);
+  animation-name: food;
+  animation-duration: 4s;
+  animation-delay: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  z-index: 4;
+}
+
+.game .food-road .food-second {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: relative;
+  left: 1200px;
+  background-color: rgb(206, 71, 71);
+  animation-name: food-second;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  animation-delay: 4s;
+  animation-iteration-count: infinite;
+  z-index: 4;
+}
+
+@keyframes eating {
+  0% {
+    clip-path: polygon(100% 79%, 44% 48%, 100% 21%);
+  }
+  25% {
+    clip-path: polygon(100% 40%, 44% 48%, 100% 60%);
+  }
+  50% {
+    clip-path: polygon(100% 25%, 44% 48%, 100% 75%);
+  }
+  75% {
+    clip-path: polygon(100% 40%, 44% 48%, 100% 60%);
+  }
+  100% {
+    clip-path: polygon(100% 79%, 44% 48%, 100% 21%);
+  }
+}
+
+@keyframes motion {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(600px);
+  }
+}
+
+@keyframes food {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  25% {
+    transform: translateX(-500px);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-900px);
+    opacity: 1;
+  }
+  60% {
+    transform: translateX(-1200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+}
+
+@keyframes food-second {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  25% {
+    transform: translateX(-700px);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-1100px);
+    opacity: 1;
+  }
+  60% {
+    transform: translateX(-1400px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+}
